@@ -1,0 +1,338 @@
+:root {
+  --color-lightest: #fff4e6;
+  --color-light: #ffe8cc;
+  --color-medium: #ffa94d;
+  --color-dark: #ff922b;
+}
+
+@import url("//cdn.web-fonts.ge/fonts/dejavu-sans-bold/css/dejavu-sans-bold.min.css");
+@import url("//cdn.web-fonts.ge/fonts/alk-life/css/alk-life.min.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "DejaVu Sans Bold Oblique", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #69727a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem; /* add some padding for smaller devices */
+  background-image: url("./imgs/coctail.png"), url("./imgs/burger.png");
+  background-position: bottom right, bottom left;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.app {
+  min-height: 72vh;
+  display: grid;
+  grid-template-columns: 54rem 64rem;
+  column-gap: 4rem;
+  align-items: start;
+  width: 100%;
+  max-width: 1300px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "ALK Life", sans-serif;
+  grid-column: 1 / -1;
+  font-size: 2.2rem;
+  color: var(--color-dark);
+}
+
+/* Button Styling */
+.button {
+  background-color: var(--color-medium);
+  color: #343a40;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: 0.2rem;
+}
+
+.button:hover {
+  background-color: var(--color-dark);
+}
+
+/* Sidebar and List Styling */
+.sidebar {
+  border-radius: 7px;
+}
+
+.sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar li {
+  display: grid;
+  grid-template-columns: 4.8rem 1fr auto;
+  background-color: var(--color-lightest);
+  align-items: center;
+  column-gap: 1.6rem;
+  padding: 1.2rem;
+  border-radius: 7px;
+  transition: 0.3s;
+}
+
+.selected,
+.sidebar li:hover {
+  background-color: var(--color-light);
+}
+
+.selected {
+  border: 6px solid var(--color-dark);
+}
+
+.sidebar li img {
+  border-radius: 50%;
+  width: 100%;
+  grid-row: span 2;
+}
+
+.sidebar li h3 {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.sidebar li p {
+  grid-row: 2;
+  grid-column: 2;
+  font-weight: 900;
+  font-family: "ALK Life", sans-serif;
+  font-size: 1.4rem;
+  display: block;
+}
+
+.sidebar li .button {
+  grid-row: span 2;
+  grid-column: 3;
+}
+
+.sidebar > .button {
+  float: right;
+  margin-right: 0.2rem;
+}
+
+/* Utility classes */
+.green {
+  color: #66a80f;
+}
+
+.red {
+  color: #e03131;
+}
+
+/* Form Styling */
+form {
+  font-size: 1.6rem;
+  display: grid;
+  align-items: center;
+  gap: 1.2rem;
+  background-color: var(--color-lightest);
+  border-radius: 7px;
+}
+
+.form-add-friend {
+  grid-template-columns: 1fr 1.5fr;
+  margin-bottom: 1.6rem;
+  padding: 1.2rem;
+}
+
+.form-add-friend label {
+  font-family: "ALK Life", sans-serif;
+  font-weight: 800;
+}
+
+.form-split-bill {
+  grid-template-columns: 1fr 12rem;
+  padding: 3.2rem 4rem;
+}
+
+.form-split-bill h2 {
+  font-family: "ALK Life", sans-serif;
+}
+
+.form-split-bill span {
+  font-weight: 900;
+  background-color: var(--color-dark);
+  padding: 0.4rem 1rem;
+  border-radius: 1rem;
+  color: white;
+}
+.form-split-bil label {
+  font-weight: 900;
+}
+
+input,
+select {
+  font-family: inherit;
+  color: inherit;
+  font-size: 1.5rem;
+  padding: 0.7rem;
+  text-align: center;
+  border: 1px solid var(--color-light);
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border: 1px solid var(--color-dark);
+}
+
+form .button {
+  margin-top: 0.6rem;
+  grid-column: 2;
+  width: 100%;
+  justify-self: center;
+}
+
+form h2 {
+  grid-column: 1 / -1;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.6rem;
+}
+
+/* ==================================================== */
+/*                Responsive Styles                   */
+/* ==================================================== */
+
+/* For tablets and smaller laptops */
+@media (max-width: 1224px) {
+  .app {
+    /* Switch to a one‑column layout with rows */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 2rem;
+    width: 600px;
+  }
+  .header {
+    text-align: center;
+  }
+
+  /* Adjust form split bill layout */
+  .form-split-bill {
+    grid-template-columns: 1fr 1fr;
+    padding: 3.2rem 4rem;
+  }
+
+  .form-split-bill h2 {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  label,
+  input {
+    padding: 2rem;
+    margin-right: 2rem;
+  }
+}
+
+/* For medium-sized devices (landscape tablets, small laptops) */
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+
+  .app {
+    width: 400px;
+  }
+
+  .form-split-bill h2 {
+    padding: 0.5rem;
+    text-align: start;
+  }
+  .form-split-bill {
+    grid-template-columns: 1fr 16rem;
+    padding: 3.2rem 4rem;
+  }
+  .sidebar ul,
+  .sidebar li,
+  form {
+    font-size: 1.4rem;
+  }
+  .button {
+    padding: 0.6rem 1rem;
+    font-size: 1.4rem;
+  }
+  /* Adjust grid columns in sidebar items */
+  .sidebar li {
+    grid-template-columns: 4rem 1fr auto;
+    padding: 1rem;
+  }
+  /* Ensure images are properly sized */
+  .sidebar li img {
+    width: 100%;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 400px) {
+  html {
+    font-size: 50%;
+  }
+  body {
+    padding: 2rem;
+  }
+  .app {
+    gap: 1.5rem;
+    width: 380px;
+  }
+
+  /* Improved responsiveness for form-split-bill */
+  .form-split-bill {
+    grid-template-columns: 1fr 1fr;
+    padding: 1.6rem 2rem;
+  }
+
+  .form-split-bill h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  /* Ensure labels have some spacing from their inputs */
+  .form-split-bill label {
+    margin-bottom: 0.3rem;
+    font-size: 1.4rem;
+  }
+
+  /* Adjust input and select sizes for better mobile fit */
+  .form-split-bill input,
+  .form-split-bill select {
+    width: 50%;
+    padding: 0.5rem;
+    font-size: 1.4rem;
+    border: 1px solid var(--color-light);
+    border-radius: 4px;
+  }
+
+  /* Ensure the submit button fits well on mobile */
+  .form-split-bill .button {
+    font-size: 1.5rem;
+    padding: 0.6rem;
+    width: 100%;
+  }
+}
